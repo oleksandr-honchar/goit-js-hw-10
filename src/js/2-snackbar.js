@@ -1,39 +1,21 @@
-const formData = {
-  email: '',
-  message: '',
-};
+form.addEventListener('submit', handleSubmit);
 
-const savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
-if (savedData) {
-  formData.email = savedData.email;
-  formData.message = savedData.message;
-
-  document.querySelector('input[name="email"]').value = formData.email;
-  document.querySelector('textarea[name="message"]').value = formData.message;
-}
-
-const form = document.querySelector('.feedback-form');
-
-form.addEventListener('input', event => {
-  const { name, value } = event.target;
-
-  if (name in formData) {
-    formData[name] = value.trim();
-  }
-
-  localStorage.setItem('feedback-form-state', JSON.stringify(formData));
-});
-
-form.addEventListener('submit', event => {
+function handleSubmit(event) {
   event.preventDefault();
+  const { delay, state } = event.target.elements;
 
-  if (formData.email === '' || formData.message === '') {
-    alert('Fill please all fields');
-  } else {
-    console.log(formData);
+  const delayValue = +delay.value;
+  const stateValue = state.value;
 
-    form.reset();
-    localStorage.removeItem('feedback-form-state');
-    Object.keys(formData).forEach(key => (formData[key] = ''));
-  }
-});
+  setTimeout(() => {
+    new Promise((resolve, reject) => {
+      if (stateValue === 'fulfilled') {
+        console.log(`✅ Fulfilled promise in ${delay}ms`);
+      } else {
+        console.log(`❌ Rejected promise in ${delay}ms`);
+      }
+    })
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
+  }, delayValue);
+}
