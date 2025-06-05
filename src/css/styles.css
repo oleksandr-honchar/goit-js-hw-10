@@ -15,7 +15,7 @@ body {
   color: #2e2f42;
 }
 
-input {
+.timer-page input {
   width: 272px;
   height: 40px;
   margin-left: 8px;
@@ -100,55 +100,18 @@ input:disabled {
   text-transform: uppercase;
 }
 
-/* form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form label {
-  display: flex;
-  flex-direction: column;
-}
-
 .snackbar-page input {
-  width: 360px;
+  width: 272px;
   height: 40px;
   margin-bottom: 16px;
-}
-
-fieldset {
-  display: flex;
-  justify-content: space-around;
-  /* gap: 48px; */
-/* margin-bottom: 16px;
-  width: 360px;
-  height: 78px;
-}
-
-input[name='state'] {
-  margin: 10px;
-}
-
-.snackbar-page button {
   font-family: inherit;
-  font-weight: 500;
-  color: #fff;
-  width: 360px;
-  height: 40px;
-  border-radius: 8px;
+  border: solid #808080;
   padding: 8px 16px;
-  background-color: #4e75ff;
-  cursor: pointer;
-  border: none;
-} */
-*/
+}
 
-/* 🌐 Base layout for the form */
 form.form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
 }
 
 /* 🏷️ Label styling */
@@ -169,6 +132,7 @@ fieldset {
   width: 360px;
   height: auto; /* 👈 Remove fixed height */
   box-sizing: border-box;
+  margin-bottom: 24px;
 }
 
 fieldset label {
