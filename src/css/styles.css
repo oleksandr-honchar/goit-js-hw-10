@@ -66,11 +66,11 @@ button:hover {
 
 button:disabled {
   background-color: #cfcfcf;
-  color: 989898;
+  color: #989898;
   cursor: not-allowed;
 }
 
-timer {
+.timer {
   display: flex;
   gap: 24px;
   align-items: center;
@@ -80,14 +80,14 @@ timer {
   color: #2e2f42;
 }
 
-field {
+.field {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 24px;
 }
 
-value {
+.value {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -95,6 +95,6 @@ value {
   line-height: 1.2;
 }
 
-label {
+.label {
   text-transform: capitalize;
 }
