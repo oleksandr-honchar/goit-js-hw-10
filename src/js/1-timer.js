@@ -22,6 +22,8 @@ datePicker.addEventListener('input', () => {
   if (selectedDate > new Date()) {
     startButton.disabled = false;
   } else {
+    window.alert('Please choose a date in the future');
+    datePicker.value = '';
     startButton.disabled = true;
   }
 });
@@ -37,6 +39,9 @@ startButton.addEventListener('click', () => {
       timerDisplay.textContent = 'Time is up!';
       return;
     }
+    const days = String(
+      Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+    ).padStart(2, '0');
     const hours = String(
       Math.floor((timeDifference / (1000 * 60 * 60)) % 24)
     ).padStart(2, '0');
@@ -48,6 +53,6 @@ startButton.addEventListener('click', () => {
       '0'
     );
 
-    timerDisplay.textContent = `${hours}h ${minutes}m ${seconds}s`;
+    timerDisplay.textContent = `${days} DAYS ${hours}HOURS ${minutes}MINUTES ${seconds}SECONDS`;
   }, 1000);
 });
