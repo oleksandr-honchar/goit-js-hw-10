@@ -54,13 +54,13 @@ function convertMs(ms) {
 }
 
 function formatTime({ days, hours, minutes, seconds }) {
-  return `${String(days).padStart(2, '0')}d : ${String(hours).padStart(
+  return `${String(days).padStart(2, '0')} : ${String(hours).padStart(
     2,
     '0'
-  )}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(
+  )} : ${String(minutes).padStart(2, '0')} : ${String(seconds).padStart(
     2,
     '0'
-  )}s`;
+  )}`;
 }
 
 startButton.addEventListener('click', () => {
@@ -75,8 +75,10 @@ startButton.addEventListener('click', () => {
 
     if (timeDiff <= 0) {
       clearInterval(timerId);
-      timerDisplay.textContent = '00d : 00h : 00m : 00s';
+      timerDisplay.textContent = '00 : 00 : 00 : 00';
       datePicker.disabled = false;
+      datePicker.value = '';
+      selectedDate = null;
       return;
     }
 
