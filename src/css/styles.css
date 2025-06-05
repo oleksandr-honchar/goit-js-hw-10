@@ -83,6 +83,8 @@ button:disabled {
 .field {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
   margin-bottom: 24px;
 }
@@ -90,11 +92,11 @@ button:disabled {
 .value {
   display: flex;
   gap: 8px;
-  align-items: center;
+
   font-size: 40px;
   line-height: 1.2;
 }
 
 .label {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
