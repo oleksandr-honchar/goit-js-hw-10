@@ -58,8 +58,7 @@ input:disabled {
   border: none;
 }
 
-.timer-page button:hover,
-.snackbar-page button:hover {
+.timer-page button:hover {
   background-color: #6c8cff;
 }
 
@@ -158,7 +157,7 @@ fieldset {
   padding: 0;
 }
 
-.snackbar-page button[type='submit'] {
+.snackbar-page button {
   font-family: inherit;
   font-weight: 500;
   color: #fff;
@@ -170,4 +169,8 @@ fieldset {
   cursor: pointer;
   border: none;
   margin-top: 24px;
+}
+
+.snackbar-page button:hover {
+  background-color: #6c8cff;
 }
