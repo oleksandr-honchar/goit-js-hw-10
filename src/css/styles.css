@@ -58,7 +58,8 @@ input:disabled {
   border: none;
 }
 
-.timer-page button:hover {
+.timer-page button:hover,
+.snackbar-page button:hover {
   background-color: #6c8cff;
 }
 
