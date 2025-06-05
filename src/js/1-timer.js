@@ -15,22 +15,19 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-
-  // ✅ Fires when calendar closes
   onClose(selectedDates) {
-    console.log('Closed on:', selectedDates[0]);
+    console.log(selectedDates[0]);
   },
-
-  // ✅ Fires immediately after user selects a date/time
   onChange(selectedDates, dateStr, instance) {
-    const selectedDate = selectedDates[0];
+    // ✅ Use global selectedDate, DO NOT redeclare
+    selectedDate = selectedDates[0];
 
     if (selectedDate > new Date()) {
       startButton.disabled = false;
-      instance.close(); // 👈 Force-close the calendar
+      instance.close(); // 👈 Auto-close calendar
     } else {
       iziToast.error({
-        title: '⛔ Invalid Date',
+        title: 'Invalid Date',
         message: 'Please choose a date in the future',
         position: 'topRight',
       });
@@ -79,7 +76,6 @@ startButton.addEventListener('click', () => {
     if (timeDiff <= 0) {
       clearInterval(timerId);
       timerDisplay.textContent = '00d : 00h : 00m : 00s';
-
       datePicker.disabled = false;
       return;
     }
