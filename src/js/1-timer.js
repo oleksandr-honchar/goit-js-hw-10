@@ -33,7 +33,6 @@ const options = {
   },
 };
 
-const fpInstance = flatpickr(datePicker, options);
 startButton.disabled = true;
 
 function convertMs(ms) {
@@ -76,7 +75,6 @@ startButton.addEventListener('click', () => {
 
       datePicker.disabled = false;
       selectedDate = null;
-      fpInstance.setDate(new Date(), true);
       startButton.disabled = true;
       return;
     }
