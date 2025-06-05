@@ -127,7 +127,6 @@ fieldset {
   justify-content: center;
   align-items: center;
   padding: 24px 48px 8px;
-  border: 1px solid #808080;
   border-radius: 4px;
   width: 360px;
   height: auto;
@@ -150,13 +149,13 @@ fieldset label {
 
 /* 🎯 Radio button spacing */
 form.form input[name='state'] {
-  margin: 20px;
-  width: auto;
-  height: auto;
-  accent-color: #4e75ff; /* modern style */
+  border: 1px solid #757575;
+  border-radius: 14px;
+  width: 20px;
+  height: 20px;
+  accent-color: #4e75ff;
 }
 
-/* 🎯 Submit Button Styling */
 .snackbar-page button[type='submit'] {
   font-family: inherit;
   font-weight: 500;
@@ -168,10 +167,4 @@ form.form input[name='state'] {
   background-color: #4e75ff;
   cursor: pointer;
   border: none;
-}
-
-/* 🚫 Disabled Button */
-.snackbar-page button[disabled] {
-  background-color: #cfcfcf;
-  cursor: not-allowed;
 }
