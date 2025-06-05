@@ -20,7 +20,7 @@ const options = {
   onChange(selectedDates, dateStr, instance) {
     selectedDate = selectedDates[0];
 
-    if (selectedDate > new Date()) {
+    if (selectedDate - new Date() > 1000) {
       startButton.disabled = false;
       instance.close();
     } else {
