@@ -15,12 +15,25 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
+
+  // ✅ Fires when calendar closes
   onClose(selectedDates) {
-    selectedDate = selectedDates[0];
+    console.log('Closed on:', selectedDates[0]);
+  },
+
+  // ✅ Fires immediately after user selects a date/time
+  onChange(selectedDates, dateStr, instance) {
+    const selectedDate = selectedDates[0];
+
     if (selectedDate > new Date()) {
       startButton.disabled = false;
+      instance.close(); // 👈 Force-close the calendar
     } else {
-      alert('Please choose a date in the future');
+      iziToast.error({
+        title: '⛔ Invalid Date',
+        message: 'Please choose a date in the future',
+        position: 'topRight',
+      });
       startButton.disabled = true;
     }
   },
