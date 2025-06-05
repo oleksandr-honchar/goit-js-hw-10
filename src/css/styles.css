@@ -1,6 +1,4 @@
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -15,28 +13,21 @@ body {
   color: #2e2f42;
 }
 
-.timer-page input {
-  width: 272px;
-  height: 40px;
-  margin-bottom: 32px;
+input[type='number'],
+input[type='text'],
+input[type='radio'] {
   font-family: inherit;
-  border: solid #808080;
+  height: 40px;
   padding: 8px 16px;
+  border: solid 1px #808080;
 }
 
 input:hover {
-  border-color: #000000;
-  outline: none;
+  border-color: #000;
 }
 
 input:active {
   border-color: #4e75ff;
-  outline: none;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #2e2f42;
 }
 
 input:disabled {
@@ -45,27 +36,49 @@ input:disabled {
   border-color: #808080;
 }
 
-.timer-page button {
+input::placeholder,
+textarea::placeholder {
+  color: #2e2f42;
+}
+
+input[type='radio'] {
+  border-radius: 14px;
+  width: 20px;
+  accent-color: #4e75ff;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #757575;
+}
+
+button {
   font-family: inherit;
   font-weight: 500;
   color: #fff;
-  width: 75px;
   height: 40px;
   border-radius: 8px;
   padding: 8px 16px;
-  background-color: #4e75ff;
   cursor: pointer;
   border: none;
+  background-color: #4e75ff;
 }
 
-.timer-page button:hover {
+button:hover {
   background-color: #6c8cff;
 }
 
-.timer-page button:disabled {
+button:disabled {
   background-color: #cfcfcf;
   color: #989898;
   cursor: not-allowed;
+}
+
+.timer-page input {
+  width: 272px;
+  margin-bottom: 32px;
+}
+
+.timer-page button {
+  width: 75px;
 }
 
 .timer {
@@ -75,13 +88,11 @@ input:disabled {
   justify-content: center;
   width: 346px;
   height: 72px;
-  color: #2e2f42;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
@@ -90,7 +101,6 @@ input:disabled {
 .value {
   display: flex;
   gap: 8px;
-
   font-size: 40px;
   line-height: 1.2;
 }
@@ -99,15 +109,9 @@ input:disabled {
   text-transform: uppercase;
 }
 
-/* Snackbar */
-
 .snackbar-page input {
-  width: 272px;
-  height: 40px;
+  width: 360px;
   margin-bottom: 16px;
-  font-family: inherit;
-  border: solid #808080;
-  padding: 8px 16px;
 }
 
 .form {
@@ -120,18 +124,18 @@ input:disabled {
   flex-direction: column;
 }
 
-/* 📦 Fieldset layout */
+.snackbar-page .form input {
+  width: 360px;
+}
+
 fieldset {
-  display: flex;
-  flex-direction: row;
+  display: flex
   gap: 48px;
   justify-content: center;
   align-items: center;
   padding: 24px 48px 8px;
   border-radius: 4px;
   width: 360px;
-  height: auto;
-  box-sizing: border-box;
   margin: 0;
 }
 
@@ -142,35 +146,7 @@ fieldset {
   gap: 8px;
 }
 
-.snackbar-page .form input {
-  width: 360px;
-  height: 40px;
-}
-
-.form input[name='state'] {
-  border: 1px solid #757575;
-  border-radius: 14px;
-  width: 20px;
-  height: 20px;
-  accent-color: #4e75ff;
-  margin: 0;
-  padding: 0;
-}
-
 .snackbar-page button {
-  font-family: inherit;
-  font-weight: 500;
-  color: #fff;
   width: 360px;
-  height: 40px;
-  border-radius: 8px;
-  padding: 8px 16px;
-  background-color: #4e75ff;
-  cursor: pointer;
-  border: none;
   margin-top: 24px;
-}
-
-.snackbar-page button:hover {
-  background-color: #6c8cff;
 }
