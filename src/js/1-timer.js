@@ -34,6 +34,7 @@ const options = {
 };
 
 startButton.disabled = true;
+flatpickr(datePicker, options);
 
 function convertMs(ms) {
   const second = 1000;
