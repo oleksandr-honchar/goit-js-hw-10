@@ -127,7 +127,7 @@ fieldset {
   gap: 48px;
   justify-content: center;
   align-items: center;
-  /* padding: 24px 48px 8px; */
+  padding: 24px 48px 8px;
   border-radius: 4px;
   width: 360px;
   height: auto;
@@ -145,7 +145,6 @@ fieldset {
 .snackbar-page .form input {
   width: 360px;
   height: 40px;
-  margin-bottom: 16px;
 }
 
 .form input[name='state'] {
@@ -169,4 +168,5 @@ fieldset {
   background-color: #4e75ff;
   cursor: pointer;
   border: none;
+  margin-top: 16px;
 }
