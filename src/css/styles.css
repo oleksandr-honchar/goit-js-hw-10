@@ -140,8 +140,7 @@ fieldset label {
   gap: 8px;
 }
 
-/* 🆔 Inputs inside snackbar-page context */
-.snackbar-page input {
+.snackbar-page .form input {
   width: 360px;
   height: 40px;
   margin-bottom: 16px;
