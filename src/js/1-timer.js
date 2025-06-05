@@ -83,7 +83,7 @@ startButton.addEventListener('click', () => {
       clearInterval(timerId);
       updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-      // Reset everything after timer ends
+      // Reset everything after the timer ends
       datePicker.disabled = false;
       startButton.disabled = true;
       selectedDate = new Date();
@@ -91,8 +91,11 @@ startButton.addEventListener('click', () => {
       isResetting = true;
       fp.setDate(new Date(), true); // Reset the date picker to current time
 
-      // Wait a short time to prevent unwanted behavior
-      setTimeout(() => (isResetting = false), 100);
+      // Reset isResetting after the next cycle to avoid timing issues
+      setTimeout(() => {
+        isResetting = false;
+      }, 0);
+
       return;
     }
 
