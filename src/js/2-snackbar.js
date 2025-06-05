@@ -1,3 +1,8 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
+const form = document.querySelector('form'); // Ensure your form has a proper reference
+
 form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
@@ -7,15 +12,29 @@ function handleSubmit(event) {
   const delayValue = +delay.value;
   const stateValue = state.value;
 
+  // Use setTimeout for the delay
   setTimeout(() => {
+    // Simulate a Promise with resolve or reject based on state value
     new Promise((resolve, reject) => {
       if (stateValue === 'fulfilled') {
-        console.log(`✅ Fulfilled promise in ${delay}ms`);
+        resolve(); // Fulfilled state, resolve the promise
       } else {
-        console.log(`❌ Rejected promise in ${delay}ms`);
+        reject(); // Rejected state, reject the promise
       }
     })
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
-  }, delayValue);
+      .then(() => {
+        iziToast.success({
+          title: 'Success',
+          message: `✅ Fulfilled promise in ${delayValue}ms`, // Corrected `delay` reference
+          position: 'topRight',
+        });
+      })
+      .catch(() => {
+        iziToast.error({
+          title: 'Error',
+          message: `❌ Rejected promise in ${delayValue}ms`, // Corrected `delay` reference
+          position: 'topRight',
+        });
+      });
+  }, delayValue); // Apply the delay before triggering the promise
 }
