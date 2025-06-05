@@ -15,54 +15,11 @@ body {
   color: #2e2f42;
 }
 
-.gallery {
-  margin: 24px 156px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-.gallery-item {
-  flex: calc(33.33% - 24px);
-  overflow: hidden;
-}
-
-.gallery-image {
-  width: 360px;
-  height: 200px;
-}
-
-.feedback-form {
-  display: flex;
-  flex-direction: column;
-}
-
 input {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
+  width: 272px;
   height: 40px;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   font-family: inherit;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  border: solid #808080;
-  padding: 8px 16px;
-}
-
-textarea {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  height: 80px;
-  margin-bottom: 16px;
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
   border: solid #808080;
   padding: 8px 16px;
 }
@@ -84,11 +41,17 @@ textarea::placeholder {
   color: #2e2f42;
 }
 
+input:disabled {
+  background-color: #fafafa;
+  color: #808080;
+  border-color: #808080;
+}
+
 button {
   font-family: inherit;
   font-weight: 500;
   color: #fff;
-  width: 95px;
+  width: 75px;
   height: 40px;
   border-radius: 8px;
   padding: 8px 16px;
@@ -99,4 +62,39 @@ button {
 
 button:hover {
   background-color: #6c8cff;
+}
+
+button:disabled {
+  background-color: #cfcfcf;
+  color: 989898;
+  cursor: not-allowed;
+}
+
+timer {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  width: 346px;
+  height: 72px;
+  color: #2e2f42;
+}
+
+field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+value {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+label {
+  text-transform: capitalize;
 }
