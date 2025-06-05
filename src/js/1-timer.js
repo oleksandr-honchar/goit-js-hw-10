@@ -28,6 +28,7 @@ datePicker.addEventListener('input', () => {
   }
 });
 startButton.addEventListener('click', () => {
+  startButton.disabled = true;
   if (timerId) {
     clearInterval(timerId);
   }
@@ -39,7 +40,9 @@ startButton.addEventListener('click', () => {
       timerDisplay.textContent = 'Time is up!';
       return;
     }
-    const days = String(Math.floor(timeDifference / (1000 * 60 * 60 * 24)));
+    const days = String(
+      Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+    ).padStart(2, '0');
     const hours = String(
       Math.floor((timeDifference / (1000 * 60 * 60)) % 24)
     ).padStart(2, '0');
@@ -52,6 +55,5 @@ startButton.addEventListener('click', () => {
     );
 
     timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    startButton.disabled = true;
   }, 1000);
 });
