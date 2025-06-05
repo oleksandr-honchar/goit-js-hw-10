@@ -153,6 +153,8 @@ form.form input[name='state'] {
   width: 20px;
   height: 20px;
   accent-color: #4e75ff;
+  margin: 0;
+  padding: 0;
 }
 
 .snackbar-page button[type='submit'] {
