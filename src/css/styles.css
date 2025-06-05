@@ -99,6 +99,8 @@ input:disabled {
   text-transform: uppercase;
 }
 
+/* Snackbar */
+
 .snackbar-page input {
   width: 272px;
   height: 40px;
@@ -108,13 +110,12 @@ input:disabled {
   padding: 8px 16px;
 }
 
-form.form {
+.form {
   display: flex;
   flex-direction: column;
 }
 
-/* 🏷️ Label styling */
-form.form label {
+.form label {
   display: flex;
   flex-direction: column;
 }
@@ -134,7 +135,7 @@ fieldset {
   margin-bottom: 24px;
 }
 
-fieldset label {
+.form fieldset label {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,7 +148,7 @@ fieldset label {
   margin-bottom: 16px;
 }
 
-form.form input[name='state'] {
+.form input[name='state'] {
   border: 1px solid #757575;
   border-radius: 14px;
   width: 20px;
