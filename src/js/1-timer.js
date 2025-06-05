@@ -35,8 +35,8 @@ const options = {
   },
 };
 
-datePicker.value = '';
 flatpickr(datePicker, options);
+datePicker.value = '';
 startButton.disabled = true;
 
 function convertMs(ms) {
