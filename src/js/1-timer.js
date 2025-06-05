@@ -12,7 +12,7 @@ const options = {
 };
 const datePicker = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('button[data-start]');
-const timerDisplay = document.querySelector('.timer-display');
+const timerDisplay = document.querySelector('.timer');
 let timerId = null;
 let selectedDate = null;
 flatpickr(datePicker, options);
