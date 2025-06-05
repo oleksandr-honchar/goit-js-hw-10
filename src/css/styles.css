@@ -99,3 +99,37 @@ input:disabled {
 .label {
   text-transform: uppercase;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.snackbar-page input {
+  width: 360px;
+  height: 40px;
+  margin-bottom: 16px;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-around;
+  /* gap: 48px; */
+  margin-bottom: 16px;
+  width: 360px;
+  height: 78px;
+}
+
+.snackbar-page button {
+  font-family: inherit;
+  font-weight: 500;
+  color: #fff;
+  width: 360px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #4e75ff;
+  cursor: pointer;
+  border: none;
+}

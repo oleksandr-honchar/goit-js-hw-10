@@ -28,12 +28,11 @@ const fp = flatpickr(datePicker, {
       instance.close();
     } else {
       iziToast.error({
-        title: 'Invalid Date',
         message: 'Please choose a date in the future',
         position: 'topRight',
       });
       startButton.disabled = true;
-      datePicker.value = ''; // Clear the input if invalid date is selected
+      datePicker.value = '';
     }
   },
 });
@@ -83,15 +82,13 @@ startButton.addEventListener('click', () => {
       clearInterval(timerId);
       updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-      // Reset everything after the timer ends
       datePicker.disabled = false;
       startButton.disabled = true;
       selectedDate = new Date();
 
       isResetting = true;
-      fp.setDate(new Date(), true); // Reset the date picker to current time
+      fp.setDate(new Date(), true);
 
-      // Reset isResetting after the next cycle to avoid timing issues
       setTimeout(() => {
         isResetting = false;
       }, 0);
