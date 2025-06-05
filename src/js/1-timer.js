@@ -29,6 +29,7 @@ datePicker.addEventListener('input', () => {
 });
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
+  datePicker.disabled = true;
   if (timerId) {
     clearInterval(timerId);
   }
