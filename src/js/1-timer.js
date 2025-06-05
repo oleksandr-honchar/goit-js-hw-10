@@ -14,6 +14,7 @@ const options = {
   enableTime: true,
   time_24hr: true,
   minuteIncrement: 1,
+  defaultDate: new Date(),
   onClose(selectedDates) {
     console.log(selectedDates[0]);
   },
