@@ -18,6 +18,9 @@ const fp = flatpickr(datePicker, {
   time_24hr: true,
   minuteIncrement: 1,
   defaultDate: new Date(),
+  onClose(selectedDates) {
+    console.log(selectedDates[0]);
+  },
   onChange(selectedDates, dateStr, instance) {
     if (isResetting) return;
 
