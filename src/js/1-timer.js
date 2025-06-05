@@ -8,7 +8,8 @@ const startButton = document.querySelector('button[data-start]');
 const timerDisplay = document.querySelector('.timer');
 
 let timerId = null;
-let selectedDate = new Date(); // 👈 set initial selectedDate to now
+let selectedDate = new Date();
+let isResetting = false;
 
 startButton.disabled = true;
 
@@ -16,8 +17,10 @@ const fp = flatpickr(datePicker, {
   enableTime: true,
   time_24hr: true,
   minuteIncrement: 1,
-  defaultDate: new Date(), // 👈 shows current time on load
+  defaultDate: new Date(),
   onChange(selectedDates, dateStr, instance) {
+    if (isResetting) return;
+
     selectedDate = selectedDates[0];
 
     if (selectedDate > new Date()) {
@@ -73,11 +76,14 @@ startButton.addEventListener('click', () => {
       clearInterval(timerId);
       timerDisplay.textContent = '00d : 00h : 00m : 00s';
 
-      // ✅ Reset everything
       datePicker.disabled = false;
       startButton.disabled = true;
       selectedDate = new Date();
-      fp.setDate(new Date(), true); // 👈 update input with current time
+
+      isResetting = true;
+      fp.setDate(new Date(), true);
+      setTimeout(() => (isResetting = false), 100);
+
       return;
     }
 
