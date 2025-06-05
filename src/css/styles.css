@@ -133,7 +133,7 @@ fieldset {
   width: 360px;
   height: auto;
   box-sizing: border-box;
-  margin-bottom: 24px;
+  margin: 0;
 }
 
 .form fieldset label {
@@ -169,5 +169,5 @@ fieldset {
   background-color: #4e75ff;
   cursor: pointer;
   border: none;
-  margin-top: 16px;
+  margin-top: 24px;
 }
