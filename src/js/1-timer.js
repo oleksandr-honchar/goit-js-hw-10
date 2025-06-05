@@ -15,13 +15,10 @@ const options = {
   time_24hr: true,
   minuteIncrement: 1,
   defaultDate: new Date(),
-  onClose(selectedDates) {
-    console.log(selectedDates[0]);
-  },
   onChange(selectedDates, dateStr, instance) {
     selectedDate = selectedDates[0];
 
-    if (selectedDate - new Date() > 1000) {
+    if (selectedDate > new Date()) {
       startButton.disabled = false;
       instance.close();
     } else {
@@ -36,8 +33,7 @@ const options = {
   },
 };
 
-flatpickr(datePicker, options);
-datePicker.value = '';
+const fpInstance = flatpickr(datePicker, options);
 startButton.disabled = true;
 
 function convertMs(ms) {
@@ -55,13 +51,13 @@ function convertMs(ms) {
 }
 
 function formatTime({ days, hours, minutes, seconds }) {
-  return `${String(days).padStart(2, '0')} : ${String(hours).padStart(
+  return `${String(days).padStart(2, '0')}d : ${String(hours).padStart(
     2,
     '0'
-  )} : ${String(minutes).padStart(2, '0')} : ${String(seconds).padStart(
+  )}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(
     2,
     '0'
-  )}`;
+  )}s`;
 }
 
 startButton.addEventListener('click', () => {
@@ -77,9 +73,11 @@ startButton.addEventListener('click', () => {
     if (timeDiff <= 0) {
       clearInterval(timerId);
       timerDisplay.textContent = '00 : 00 : 00 : 00';
+
       datePicker.disabled = false;
-      datePicker.value = '';
       selectedDate = null;
+      fpInstance.setDate(new Date(), true);
+      startButton.disabled = true;
       return;
     }
 
