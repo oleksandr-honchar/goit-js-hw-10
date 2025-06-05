@@ -18,9 +18,6 @@ const fp = flatpickr(datePicker, {
   time_24hr: true,
   minuteIncrement: 1,
   defaultDate: new Date(),
-  onClose(selectedDates) {
-    console.log(selectedDates[0]);
-  },
   onChange(selectedDates, dateStr, instance) {
     if (isResetting) return;
 
@@ -36,7 +33,7 @@ const fp = flatpickr(datePicker, {
         position: 'topRight',
       });
       startButton.disabled = true;
-      datePicker.value = '';
+      datePicker.value = ''; // Clear the input if invalid date is selected
     }
   },
 });
@@ -55,14 +52,21 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-function formatTime({ days, hours, minutes, seconds }) {
-  return `${String(days).padStart(2, '0')}d : ${String(hours).padStart(
+function updateTimerDisplay({ days, hours, minutes, seconds }) {
+  document.querySelector('[data-days]').textContent = String(days).padStart(
     2,
     '0'
-  )}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(
+  );
+  document.querySelector('[data-hours]').textContent = String(hours).padStart(
     2,
     '0'
-  )}s`;
+  );
+  document.querySelector('[data-minutes]').textContent = String(
+    minutes
+  ).padStart(2, '0');
+  document.querySelector('[data-seconds]').textContent = String(
+    seconds
+  ).padStart(2, '0');
 }
 
 startButton.addEventListener('click', () => {
@@ -77,20 +81,22 @@ startButton.addEventListener('click', () => {
 
     if (timeDiff <= 0) {
       clearInterval(timerId);
-      timerDisplay.textContent = '00d : 00h : 00m : 00s';
+      updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
+      // Reset everything after timer ends
       datePicker.disabled = false;
       startButton.disabled = true;
       selectedDate = new Date();
 
       isResetting = true;
-      fp.setDate(new Date(), true);
-      setTimeout(() => (isResetting = false), 100);
+      fp.setDate(new Date(), true); // Reset the date picker to current time
 
+      // Wait a short time to prevent unwanted behavior
+      setTimeout(() => (isResetting = false), 100);
       return;
     }
 
     const time = convertMs(timeDiff);
-    timerDisplay.textContent = formatTime(time);
+    updateTimerDisplay(time);
   }, 1000);
 });
