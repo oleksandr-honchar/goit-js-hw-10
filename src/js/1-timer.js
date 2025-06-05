@@ -39,9 +39,7 @@ startButton.addEventListener('click', () => {
       timerDisplay.textContent = 'Time is up!';
       return;
     }
-    const days = String(
-      Math.floor(timeDifference / (1000 * 60 * 60 * 24))
-    ).padStart(2, '0');
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = String(
       Math.floor((timeDifference / (1000 * 60 * 60)) % 24)
     ).padStart(2, '0');
@@ -53,6 +51,6 @@ startButton.addEventListener('click', () => {
       '0'
     );
 
-    timerDisplay.textContent = `${days} DAYS ${hours}HOURS ${minutes}MINUTES ${seconds}SECONDS`;
+    timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }, 1000);
 });
