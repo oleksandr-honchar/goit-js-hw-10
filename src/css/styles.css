@@ -100,7 +100,7 @@ input:disabled {
   text-transform: uppercase;
 }
 
-form {
+/* form {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -121,7 +121,7 @@ fieldset {
   display: flex;
   justify-content: space-around;
   /* gap: 48px; */
-  margin-bottom: 16px;
+/* margin-bottom: 16px;
   width: 360px;
   height: 78px;
 }
@@ -141,4 +141,62 @@ input[name='state'] {
   background-color: #4e75ff;
   cursor: pointer;
   border: none;
+} */
+*/
+
+/* 🌐 Base layout for the form */
+form.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 🏷️ Label styling */
+form.form label {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 📦 Fieldset layout */
+form.form fieldset {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+  width: 360px;
+  height: 78px;
+}
+
+/* 🆔 Inputs inside snackbar-page context */
+.snackbar-page input {
+  width: 360px;
+  height: 40px;
+  margin-bottom: 16px;
+}
+
+/* 🎯 Radio button spacing */
+form.form input[name='state'] {
+  margin: 20px;
+  width: auto;
+  height: auto;
+  accent-color: #4e75ff; /* modern style */
+}
+
+/* 🎯 Submit Button Styling */
+.snackbar-page button[type='submit'] {
+  font-family: inherit;
+  font-weight: 500;
+  color: #fff;
+  width: 360px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #4e75ff;
+  cursor: pointer;
+  border: none;
+}
+
+/* 🚫 Disabled Button */
+.snackbar-page button[disabled] {
+  background-color: #cfcfcf;
+  cursor: not-allowed;
 }
