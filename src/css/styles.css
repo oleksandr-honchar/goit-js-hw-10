@@ -158,12 +158,23 @@ form.form label {
 }
 
 /* 📦 Fieldset layout */
-form.form fieldset {
+fieldset {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 16px;
+  flex-direction: row; /* 👈 Arrange radio options side by side */
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px; /* 👈 Add padding for better spacing */
+  border: 1px solid #ccc; /* 👈 Optional: clearer border */
+  border-radius: 8px;
   width: 360px;
-  height: 78px;
+  height: auto; /* 👈 Remove fixed height */
+  box-sizing: border-box;
+}
+
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 48px;
 }
 
 /* 🆔 Inputs inside snackbar-page context */
