@@ -13,18 +13,16 @@ let selectedDate = null;
 const options = {
   enableTime: true,
   time_24hr: true,
-  defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
   },
   onChange(selectedDates, dateStr, instance) {
-    // ✅ Use global selectedDate, DO NOT redeclare
     selectedDate = selectedDates[0];
 
     if (selectedDate > new Date()) {
       startButton.disabled = false;
-      instance.close(); // 👈 Auto-close calendar
+      instance.close();
     } else {
       iziToast.error({
         title: 'Invalid Date',
@@ -32,10 +30,12 @@ const options = {
         position: 'topRight',
       });
       startButton.disabled = true;
+      datePicker.value = '';
     }
   },
 };
 
+datePicker.value = '';
 flatpickr(datePicker, options);
 startButton.disabled = true;
 
