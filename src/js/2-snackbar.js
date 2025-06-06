@@ -14,9 +14,9 @@ function handleSubmit(event) {
   setTimeout(() => {
     new Promise((resolve, reject) => {
       if (stateValue === 'fulfilled') {
-        resolve();
+        resolve(delayValue);
       } else {
-        reject();
+        reject(delayValue);
       }
     })
       .then(() => {
