@@ -19,13 +19,13 @@ function handleSubmit(event) {
         reject(delayValue);
       }
     })
-      .then(() => {
+      .then(value => {
         iziToast.success({
           message: `✅ Fulfilled promise in ${delayValue}ms`,
           position: 'topRight',
         });
       })
-      .catch(() => {
+      .catch(value => {
         iziToast.error({
           message: `❌ Rejected promise in ${delayValue}ms`,
           position: 'topRight',
